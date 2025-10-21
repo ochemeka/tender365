@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id         Int       @id @default(autoincrement())
+  name       String
+  slug       String    @unique
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  users      UserRole[]
+  branches   Branch[]
+}
+
+model Branch {
+  id         Int       @id @default(autoincrement())
+  companyId  Int
+  name       String
+  address    String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  company    Company   @relation(fields: [companyId], references: [id])
+}
+
+model User {
+  id         Int        @id @default(autoincrement())
+  email      String     @unique
+  name       String?
+  password   String?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  roles      UserRole[] // relation to UserRole
+}
+
+model Role {
+  id          Int             @id @default(autoincrement())
+  companyId   Int?            // null = global (platform) role template
+  name        String
+  slug        String
+  description String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  permissions RolePermission[]
+  userRoles   UserRole[]
+  company     Company?        @relation(fields: [companyId], references: [id])
+  @@unique([companyId, slug])
+}
+
+model Permission {
+  id          Int              @id @default(autoincrement())
+  slug        String           @unique    // e.g. "sales.create", "inventory.read"
+  name        String
+  description String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  rolePerms   RolePermission[]
+}
+
+model RolePermission {
+  id           Int        @id @default(autoincrement())
+  roleId       Int
+  permissionId Int
+  role         Role       @relation(fields: [roleId], references: [id])
+  permission   Permission @relation(fields: [permissionId], references: [id])
+  createdAt    DateTime   @default(now())
+  @@unique([roleId, permissionId])
+}
+
+model UserRole {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  roleId     Int
+  companyId  Int
+  branchId   Int?      // optional: null = all branches
+  user       User      @relation(fields: [userId], references: [id])
+  role       Role      @relation(fields: [roleId], references: [id])
+  company    Company   @relation(fields: [companyId], references: [id])
+  createdAt  DateTime  @default(now())
+  @@unique([userId, roleId, companyId, branchId])
+}
+
+model InviteToken {
+  id          Int      @id @default(autoincrement())
+  email       String
+  companyId   Int
+  roleId      Int
+  branchId    Int?     // optional: invite to specific branch
+  token       String   @unique
+  accepted    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  expiresAt   DateTime
+  company     Company  @relation(fields: [companyId], references: [id])
+  role        Role     @relation(fields: [roleId], references: [id])
+}
