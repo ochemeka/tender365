@@ -8,8 +8,7 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider
         attribute="class"
         defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
+        enableSystem={true}
       >
         <Component {...pageProps} />
       </ThemeProvider>

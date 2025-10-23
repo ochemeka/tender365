@@ -1,8 +1,8 @@
 "use client";
 
-import { ThemeToggle } from "@/components/ThemeToggle";
+import ThemeToggle from "@/components/global/ThemeToggle"; // ✅ default import
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}

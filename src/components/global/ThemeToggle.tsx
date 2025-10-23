@@ -1,22 +1,24 @@
-// src/components/global/ThemeToggle.tsx
 "use client";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function ThemeToggle() {
-  const { theme, setTheme, systemTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
 
-  const current = theme === "system" ? systemTheme : theme;
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return <button className="p-2 border rounded-md"><Sun className="w-5 h-5" /></button>;
+  }
 
   return (
-    <Button variant="ghost" size="sm" onClick={() => setTheme(current === "dark" ? "light" : "dark")} className="p-2">
-      {current === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="p-2 border rounded-md"
+    >
+      {theme === "dark" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+    </button>
   );
 }
