@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a1a2f;
+  --primary: #005bce;
+  --accent: #00c2ff;
+}
+
+.dark {
+  --background: #0a1a2f;
+  --foreground: #e6eefa;
+  --primary: #4c9bff;
+  --accent: #7de3ff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--primary) 90%, black);
+}

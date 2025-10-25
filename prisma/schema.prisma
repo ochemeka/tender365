@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model OTP {
+  id          String    @id @default(uuid())
+  phone       String?
+  email       String?
+  code        String
+  method      String    @default("sms")
+  ipAddress   String?   @map("ip_address")
+  attempts    Int       @default(0)
+  lockedUntil DateTime? @map("locked_until")
+  expiresAt   DateTime
+  isUsed      Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+
+  @@index([phone])
+  @@index([email])
+  @@map("otps")
+}
+
+model Business {
+  id                 String    @id @default(uuid())
+  name               String
+  phone              String    @unique
+  subscriptionPlan   String    @default("trial")
+  transactionCount   Int       @default(0)
+  transactionLimit   Int       @default(50)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@map("businesses")
+}
+
+// Add more models from the complete schema later
