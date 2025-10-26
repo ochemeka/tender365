@@ -23,14 +23,15 @@ export default function HomePage() {
 
             {/* Nav Links */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="hover:text-[var(--primary)] font-medium">Features</a>
-              <a href="#pricing" className="hover:text-[var(--primary)] font-medium">Pricing</a>
-              <a href="#about" className="hover:text-[var(--primary)] font-medium">About</a>
+              <a href="#features" className="hover:text-[var(--primary)] font-medium" style={{ color: 'var(--foreground)' }}>Features</a>
+              <a href="#pricing" className="hover:text-[var(--primary)] font-medium" style={{ color: 'var(--foreground)' }}>Pricing</a>
+              <a href="#about" className="hover:text-[var(--primary)] font-medium" style={{ color: 'var(--foreground)' }}>About</a>
 
               {/* Theme Toggle Button */}
               <button
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
                 className="px-3 py-2 border rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                style={{ color: 'var(--foreground)', borderColor: 'var(--foreground)' }}
               >
                 {theme === "light" ? "🌙 Dark" : "☀️ Light"}
               </button>
@@ -48,7 +49,7 @@ export default function HomePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="text-center">
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight" style={{ color: 'var(--foreground)' }}>
             Run Your Business
             <br />
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -56,7 +57,7 @@ export default function HomePage() {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-80" style={{ color: 'var(--foreground)' }}>
             Complete business management solution for Nigerian SMEs. 
             POS, Inventory, E-commerce, and WhatsApp ordering - all integrated seamlessly.
           </p>
@@ -71,14 +72,15 @@ export default function HomePage() {
             </a>
             <a 
               href="/dashboard"
-              className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 dark:hover:bg-gray-700 shadow-lg hover:shadow-xl border-2 border-gray-200 dark:border-gray-700 transition-all w-full sm:w-auto"
+              className="px-8 py-4 bg-white dark:bg-gray-800 rounded-xl font-semibold text-lg hover:bg-gray-50 dark:hover:bg-gray-700 shadow-lg hover:shadow-xl border-2 border-gray-200 dark:border-gray-700 transition-all w-full sm:w-auto"
+              style={{ color: 'var(--foreground)' }}
             >
               View Demo →
             </a>
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm opacity-70" style={{ color: 'var(--foreground)' }}>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -109,8 +111,8 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Smart POS System</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+            <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>Smart POS System</h3>
+            <p className="leading-relaxed opacity-80" style={{ color: 'var(--foreground)' }}>
               Fast checkout, receipt printing, multiple payment methods. Works perfectly offline!
             </p>
           </div>
@@ -122,8 +124,8 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Inventory Tracking</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+            <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>Inventory Tracking</h3>
+            <p className="leading-relaxed opacity-80" style={{ color: 'var(--foreground)' }}>
               Real-time stock updates, low stock alerts, and automatic reorder notifications.
             </p>
           </div>
@@ -135,8 +137,8 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">WhatsApp Orders</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+            <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>WhatsApp Orders</h3>
+            <p className="leading-relaxed opacity-80" style={{ color: 'var(--foreground)' }}>
               Take orders directly from WhatsApp. Automated catalog and payment links included.
             </p>
           </div>
@@ -145,10 +147,10 @@ export default function HomePage() {
         {/* Pricing Section */}
         <div id="pricing" className="mt-24">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
               Simple, Transparent Pricing
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
+            <p className="text-xl opacity-80" style={{ color: 'var(--foreground)' }}>
               Choose the plan that fits your business size
             </p>
           </div>
@@ -157,10 +159,10 @@ export default function HomePage() {
             {/* Starter Plan */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-200 dark:border-gray-700">
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Starter</h3>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--foreground)' }}>Starter</h3>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-gray-900 dark:text-white">₦2,500</span>
-                  <span className="text-gray-500 dark:text-gray-400">/month</span>
+                  <span className="text-4xl font-bold" style={{ color: 'var(--foreground)' }}>₦2,500</span>
+                  <span className="opacity-60" style={{ color: 'var(--foreground)' }}>/month</span>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
@@ -168,22 +170,22 @@ export default function HomePage() {
                   <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-600 dark:text-gray-300">300 transactions/month</span>
+                  <span style={{ color: 'var(--foreground)' }}>300 transactions/month</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-600 dark:text-gray-300">3 staff users</span>
+                  <span style={{ color: 'var(--foreground)' }}>3 staff users</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-600 dark:text-gray-300">All core features</span>
+                  <span style={{ color: 'var(--foreground)' }}>All core features</span>
                 </li>
               </ul>
-              <a href="/setup" className="block w-full text-center py-3 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+              <a href="/setup" className="block w-full text-center py-3 bg-gray-100 dark:bg-gray-700 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" style={{ color: 'var(--foreground)' }}>
                 Get Started
               </a>
             </div>
@@ -228,10 +230,10 @@ export default function HomePage() {
             {/* Enterprise Plan */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-200 dark:border-gray-700">
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Enterprise</h3>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--foreground)' }}>Enterprise</h3>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-gray-900 dark:text-white">₦10,000</span>
-                  <span className="text-gray-500 dark:text-gray-400">/month</span>
+                  <span className="text-4xl font-bold" style={{ color: 'var(--foreground)' }}>₦10,000</span>
+                  <span className="opacity-60" style={{ color: 'var(--foreground)' }}>/month</span>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
@@ -239,22 +241,22 @@ export default function HomePage() {
                   <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-600 dark:text-gray-300">Unlimited transactions</span>
+                  <span style={{ color: 'var(--foreground)' }}>Unlimited transactions</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-600 dark:text-gray-300">Unlimited users</span>
+                  <span style={{ color: 'var(--foreground)' }}>Unlimited users</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-600 dark:text-gray-300">API access + Priority support</span>
+                  <span style={{ color: 'var(--foreground)' }}>API access + Priority support</span>
                 </li>
               </ul>
-              <a href="/setup" className="block w-full text-center py-3 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+              <a href="/setup" className="block w-full text-center py-3 bg-gray-100 dark:bg-gray-700 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" style={{ color: 'var(--foreground)' }}>
                 Get Started
               </a>
             </div>
